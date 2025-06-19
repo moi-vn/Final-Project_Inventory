@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: url('https://www.finaleinventory.com/wp-content/uploads/2021/11/obsolete-inventory-manage.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff;
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-top: 80px; 
+        flex-grow: 1; 
+    }
+
+    .home-container {
+        max-width: 900px;
+        width: 90%;
+        padding: 60px 20px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        margin: auto;
+        text-align: center;
+    }
+
+    .logo-img {
+        max-width: 250px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .intro {
+        margin-bottom: 40px;
+    }
+
+        .intro h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+    .features {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .feature-box {
+        flex: 1 1 250px;
+        background-color: rgba(255, 255, 255, 0.15);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+    
+
+        .feature-box h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+            color: #f1f1f1;
+        }
+
+        .feature-box p {
+            font-size: 16px;
+            color: #e0e0e0;
+        }
+
+    a {
+        color: #90cdf4;
+        text-decoration: underline;
+    }
+
+    footer {
+        text-align: left; 
+    }
+</style>
+
+<div class="home-wrapper">
+    <div class="home-container">
+        <img class="logo-img" src="https://static.vecteezy.com/system/resources/previews/026/309/464/non_2x/of-a-man-carrying-boxes-in-front-of-a-building-vector.jpg" alt="Inventory Logo" />
+
+        <div class="intro">
+            <h1>Welcome to InventoryPro</h1>
+            <p>Your all-in-one solution for efficient inventory tracking and management.</p>
+        </div>
+
+        <div class="features">
+            <div class="feature-box">
+                <h3>Track Inventory</h3>
+                <p>Monitor stock levels, availability, and item history with ease.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Manage Products</h3>
+                <p>Easily add, update, or remove products from your inventory.</p>
+            </div>
+            <div class="feature-box">
+                <h3>List Table</h3>
+                <p>View stock information and availability at a glance.</p>
+            </div>
+        </div>
+    </div>
+</div>
+

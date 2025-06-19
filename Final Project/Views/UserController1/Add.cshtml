@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Add Item";
+}
+
+@model Final_Project.Models.AddItemViewModel
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: url('https://images.hdqwalls.com/download/minimal-landscape-4k-ro-1366x768.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff; 
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .add-item-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-top: 80px; 
+        flex-grow: 1; 
+    }
+
+    .add-item-container {
+        max-width: 600px; 
+        width: 90%;
+        padding: 40px 20px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        margin: auto;
+        text-align: left; 
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    .form-label {
+        margin-top: 10px;
+    }
+
+    .form-control {
+        margin-top: 5px;
+        width: 100%;
+    }
+
+    .btn {
+        margin-top: 20px;
+    }
+
+    footer {
+        text-align: left;
+		color: white;
+	}
+
+</style>
+
+<div class="add-item-wrapper">
+    <div class="add-item-container">
+        <h1>@ViewData["Title"]</h1>
+
+        <form method="post">
+            <div class="mt-3">
+                <label class="form-label"> Name </label>
+                <input type="text" class="form-control" asp-for="Name" />
+            </div>
+
+            <div class="mt-3">
+                <label class="form-label"> Description </label>
+                <input type="text" class="form-control" asp-for="Description" />
+            </div>
+
+            <div class="mt-3">
+                <label class="form-label"> Quantity </label>
+                <input type="number" class="form-control" asp-for="Quantity" />
+            </div>
+
+            <div class="mt-3">
+                <label class="form-label"> Price </label>
+                <input type="number" class="form-control" step="0.01" min="0" name="Price" asp-for="Price" />
+            </div>
+
+            <div class="mt-3">
+                <input type="checkbox" class="form-check-input" id="IsAvailable" asp-for="IsAvailable" />
+                <label class="form-check-label" for="IsAvailable"> IsAvailable </label>
+            </div>
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-success"> Save </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: url('https://images5.alphacoders.com/379/379348.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff;
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .privacy-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-top: 80px;
+        flex-grow: 1;
+    }
+
+    .privacy-container {
+        max-width: 900px;
+        width: 90%;
+        padding: 60px 30px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        margin: auto;
+        text-align: left;
+    }
+
+    h1 {
+        font-size: 42px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin-top: 30px;
+        color: #90cdf4;
+    }
+
+    p {
+        font-size: 18px;
+        margin: 10px 0;
+        line-height: 1.6;
+        color: #e0e0e0;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    li {
+        margin: 8px 0;
+    }
+
+    footer {
+        text-align: left;
+    }
+</style>
+
+<div class="privacy-wrapper">
+    <div class="privacy-container">
+        <h1>@ViewData["Title"]</h1>
+
+        <p>We respect your privacy. When you use InventoryPro, we may collect basic info.</p>
+
+        <p>We use this information to improve the app, provide support, and send updates (if you agree). We keep your data safe and never sell it.</p>
+
+        <p>
+            If you have any questions, contact us at
+            <a href="mailto:support@inventorypro.com" style="color:#90cdf4;">support@inventorypro.com</a>.
+        </p>
+    </div>
+</div>

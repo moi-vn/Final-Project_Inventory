@@ -1,0 +1,27 @@
+﻿@model List<Final_Project.Models.ItemHistory>
+
+@{
+    ViewData["Title"] = "History";
+}
+
+<h2>Recent Inventory History</h2>
+
+@if (Model.Any())
+{
+    <ul class="list-group">
+        @foreach (var entry in Model)
+        {
+            <li class="list-group-item">
+                <strong>@entry.Action</strong> - @entry.ItemName
+                <br />
+                <small class="text-muted">@entry.ActionDate.ToString("g")</small>
+                <br />
+                <em>@entry.Description</em>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <div class="alert alert-info">No history available.</div>
+}

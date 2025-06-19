@@ -1,0 +1,104 @@
+﻿@{
+	ViewData["Title"] = "List";
+}
+
+@model Final_Project.Models.InventoryListViewModel
+
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		background: url('https://images.hdqwalls.com/download/minimal-landscape-4k-ro-1366x768.jpg') no-repeat center center fixed;
+		background-size: cover;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	}
+
+	h2, .card-header {
+		color: #fff;
+	}
+
+	.table th, .table td {
+		border: 1px solid #4d4d4d;
+		padding: 8px;
+	}
+
+	.table th {
+		background-color: #000;
+		color: #fff;
+		text-align: center;
+	}
+
+	.table td {
+		background-color: #d3d3d3;
+		color: #000;
+		text-align: center;
+	}
+
+	.card {
+		background-color: rgba(255, 255, 255, 0.8);
+	}
+
+	footer {
+		color: white;
+	}
+</style>
+
+<h2 class="text-center mb-4">Inventory List</h2>
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-lg-10 mb-4">
+			<a asp-action="Add" class="btn btn-primary mb-3">Add New Item</a>
+
+			@if (Model.Items != null && Model.Items.Any())
+			{
+				<div class="table-responsive">
+					<table class="table table-bordered table-hover mx-auto">
+						<thead class="table-dark">
+							<tr>
+								<th>Name</th>
+								<th>Quantity</th>
+								<th>Price</th>
+								<th>Availability</th>
+								<th>Description</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model.Items)
+							{
+								<tr>
+									<td>@item.Name</td>
+									<td>@item.Quantity</td>
+									<td>@item.Price.ToString("F2")</td>
+									<td>
+										@if (item.IsAvailable)
+										{
+											<span class="badge bg-success">In Stock</span>
+										}
+										else
+										{
+											<span class="badge bg-danger">Out of Stock</span>
+										}
+									</td>
+									<td>@item.Description</td>
+									<td>
+										<a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning btn-sm">Edit</a>
+										<form asp-action="Delete" method="post" class="d-inline">
+											<input type="hidden" name="ID" value="@item.ID" />
+											<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">Delete</button>
+										</form>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			}
+			else
+			{
+				<div class="alert alert-info">No items in inventory yet.</div>
+			}
+		</div>
+	</div>
+</div>

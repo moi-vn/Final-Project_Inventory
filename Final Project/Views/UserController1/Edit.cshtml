@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Edit Item";
+}
+
+@model Final_Project.Models.Entities.Inventory
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: url('https://images.hdqwalls.com/download/minimal-landscape-4k-ro-1366x768.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff;
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .edit-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-top: 80px;
+        flex-grow: 1;
+    }
+
+    .edit-container {
+        max-width: 600px; 
+        width: 90%;
+        padding: 40px 20px; 
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        margin: auto;
+        text-align: left; 
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    .form-label {
+        margin-top: 10px;
+    }
+
+    .form-control {
+        margin-top: 5px;
+        width: 100%;
+    }
+
+    .btn {
+        margin-top: 20px;
+    }
+
+    footer{
+        text-align: left;
+    }
+</style>
+
+<div class="edit-wrapper">
+    <div class="edit-container">
+        <h1>@ViewData["Title"]</h1>
+
+        @if (Model == null)
+        {
+            <p>No Item was found with this ID</p>
+        }
+        else
+        {
+            <form method="post" asp-action="Edit" asp-controller="UserController1">
+                <div class="mt-3">
+                    <label class="form-label">ID</label>
+                    <input type="text" class="form-control" asp-for="ID" readonly />
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" asp-for="Name" />
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label">Description</label>
+                    <input type="text" class="form-control" asp-for="Description" />
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label">Quantity</label>
+                    <input type="number" class="form-control" asp-for="Quantity" />
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label">Price</label>
+                    <input type="number" class="form-control" step="0.01" min="0" asp-for="Price" />
+                </div>
+
+                <div class="mt-3">
+                    <input type="checkbox" class="form-check-input" id="IsAvailable" asp-for="IsAvailable" />
+                    <label class="form-check-label" for="IsAvailable">IsAvailable</label>
+                </div>
+
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-success"> Save </button>
+                </div>
+            </form>
+
+            <form method="post" asp-action="Delete" asp-controller="UserController1" class="mt-3">
+                <input type="hidden" asp-for="ID" />
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        }
+    </div>
+</div>
